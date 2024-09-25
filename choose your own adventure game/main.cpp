@@ -44,3 +44,39 @@ void firstChoice()
             break;
     }
 }
+void secondChoice()
+{
+    
+}
+void thirdChoice()
+{
+    
+}
+void fourthChoice()
+{
+    
+}
+void fifthChoice()
+{
+    
+}
+void sixthChoice()
+{
+    
+}
+void seventhChoice()
+{
+    
+}
+void eigthChoice()
+{
+    
+}
+void ninthChoice()
+{
+    
+}
+void tenthChoice()
+{
+    
+}
