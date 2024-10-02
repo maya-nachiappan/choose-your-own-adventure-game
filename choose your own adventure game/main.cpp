@@ -228,4 +228,3 @@ void doorwayChoice() // function for adding user ability
 //{
 
 //}
-
