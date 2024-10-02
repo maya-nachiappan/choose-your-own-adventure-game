@@ -14,8 +14,20 @@ using namespace std;
 
 int score=0;
 
+void startGame();
 int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice();
 
+int main()
+{
+    int totalScore;
+    int score=0;
+    startGame();
+    firstChoice();
+    secondChoice();
+    totalScore = firstChoice(score)+ secondChoice(score);
+    cout << "your total score is: " << totalScore <<endl;
+    return 0;
+}
 
 void startGame()
 {
@@ -184,14 +196,3 @@ return score;
 
 //}
 
-int main()
-{
-    int totalScore;
-    int score=0;
-    startGame();
-    firstChoice();
-    secondChoice();
-    totalScore = firstChoice(score)+ secondChoice(score);
-    cout << "your total score is: " << totalScore <<endl;
-    return 0;
-}
