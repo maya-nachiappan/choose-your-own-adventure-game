@@ -13,17 +13,20 @@
 using namespace std;
 
 int score=0;
+bool ability=0;
+char specialAbility;
 
-void startGame();
+// declaring functions
+void startGame(), doorwayChoice();
 int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice();
 
 int main()
 {
     int totalScore=0;
-    int score=0;
     startGame();
-    totalScore=firstChoice();
+    totalScore+=firstChoice();
     totalScore+= secondChoice();
+    totalScore+= thirdChoice();
     
     cout << "your total score is: " << totalScore <<endl;
     return 0;
@@ -31,11 +34,12 @@ int main()
 
 void startGame()
 {
-        cout << "Welcome to your adventure game!" << endl;
-        cout << "You find yourself alone in the woods, infront of an abandoned castle" << endl;
+    cout << "Welcome to your adventure game!"<<endl;
+    cout << "You find yourself alone in the woods, infront of an abandoned castle" << endl;
+    
 }
 
-
+// the user chooses where to go
 int firstChoice()
 {
     
@@ -47,8 +51,9 @@ int firstChoice()
         switch (choice){
             case 1:
                 cout << "You begin to walk further into the forest" << endl;
-                forestChoice();
-                return score+= 3;
+                score+= 3;
+                score+=forestChoice();
+                return score;
                 break;
             case 2:
                 cout << "You advance further into the castle, unarmed" << endl;
@@ -56,7 +61,8 @@ int firstChoice()
                break;
             case 3:
                 cout << "You sit down on the ground and begin to wait and hope for people to find you" << endl;
-                return score += 1;
+                score += 1;
+                return score+= stayChoice();
                 break;
             default:
                 cout << "It is getting dark and cold outside and you need to make a decision soon." << endl;
@@ -84,17 +90,40 @@ int forestChoice()
     else if (choice==2)
     {
         cout << "you try to hide in the forest but are unable to outrun the monster and it catches you anyways. you die." << endl;
-        return 0;
+         return 0;
         
     }
     return score;
 }
 
 // function if the user chooses to stay put
-//void stayChoice()
-//{
+int stayChoice()
+{
+    int choice;
+    int score=0;
+    cout << "You sit on the ground for what seems to be hours before realizing nobody is coming to find you. do you (1) try to go back to the castle (2) try to explore the woods?" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "you manage to find and get back to the castle safely" << endl;
+        return score+=2;
+    }
+    else if (choice==2)
+    {
+        cout << "you give up on waiting and try to explore the forest" << endl;
+        score+=1;
+        return score += forestChoice();
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        stayChoice();
+    }
+    return score;
     
-//}
+}
+
+// the user chooses a weapon
 int secondChoice()
 {
     
@@ -113,7 +142,7 @@ int secondChoice()
             return score += 5;
            break;
         case 3:
-            cout << "You pick up the gun, but there is only one bullet" << endl;
+            cout << "You pick up the gun, but there are only two bullets" << endl;
             return score += 1;
             break;
         default:
@@ -124,6 +153,7 @@ int secondChoice()
 return score;
 }
     
+// the user chooses to explore a doorway
 int thirdChoice()
 {
     int score=0;
@@ -133,12 +163,13 @@ int thirdChoice()
     
     switch (choice){
         case 1:
-            cout << "You manage to pull apart the wooden planks " << endl;
-            return score+= 3;
+            cout << "You manage to pull apart the wooden planks" << endl;
+            doorwayChoice();
+            return score+= 5;
             break;
         case 2:
             cout << "You leave the blockaded doorway alone, rather than trying to mess with whatever is beyond it." << endl;
-            return score += 5;
+            return score += 2;
            break;
         default:
             cout << "you need to make a decision!" << endl;
@@ -148,9 +179,9 @@ int thirdChoice()
 return score;
     
 }
-int fourthChoice() // function for adding user ability
+void doorwayChoice() // function for adding user ability
 {
-    int score=0;
+    
     int choice;
     cout << "The previously-blockaded doorway opens into a room filled with multi colored bottles lying around. Upon further inspection, you realize they are potions. Which potion do you pick: (1) the yellow potion in a small square bottle (2) the blue potion in a spherical bottle or (3) the red potion in a tiny vial?" << endl;
     cin >> choice;
@@ -158,11 +189,11 @@ int fourthChoice() // function for adding user ability
     switch (choice){
         case 1:
             cout << "You drink the fire potion and get the ability to throw fireballs" << endl;
-            score+= 3;
+          
             break;
         case 2:
             cout << "You drink the water potion and get the ability to move water" << endl;
-            score += 5;
+            
            break;
         case 3:
             cout << "you drink the red potion and get the ability to blast air" << endl;
@@ -171,7 +202,6 @@ int fourthChoice() // function for adding user ability
             thirdChoice();
             break;
     }
-return score;
     
 }
 //void fifthChoice()
