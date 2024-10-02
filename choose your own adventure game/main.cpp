@@ -19,11 +19,13 @@ int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice();
 
 int main()
 {
+    int totalScore=0;
     int score=0;
     startGame();
-    firstChoice();
-    secondChoice();
-    cout << "your total score is: " << score <<endl;
+    totalScore=firstChoice();
+    totalScore+= secondChoice();
+    
+    cout << "your total score is: " << totalScore <<endl;
     return 0;
 }
 
@@ -38,6 +40,7 @@ int firstChoice()
 {
     
         int choice;
+    int score=0;
         cout << "Do you want to (1) start searching the forest, (2) go towards the castle or (3) stay put and wait for other people to find you?" << endl;
         cin >> choice;
         
@@ -70,6 +73,7 @@ int forestChoice()
 {
     
     int choice;
+    int score=0;
     cout << "You walk through the woods for a while, before eventually hearing the roar of a monster you have never heard before. do you (1) run back to the castle for shelter or (2) try to hide in the woods?" << endl;
     cin >> choice;
     if (choice==1)
@@ -95,6 +99,7 @@ int secondChoice()
 {
     
     int choice;
+    int score=0;
     cout << "You walk through the castle and notice various weapons lying around. do you pick up the (1) bow and arrow, (2) the sword or (3) the gun?" << endl;
     cin >> choice;
     
@@ -121,7 +126,7 @@ return score;
     
 int thirdChoice()
 {
-    
+    int score=0;
     int choice;
     cout << "You come across a corridor with a doorway that is blocked off with large planks of wood. do you (1) try to find a way inside or (2) leave the doorway and continue exploring the rest of the castle?" << endl;
     cin >> choice;
@@ -145,7 +150,7 @@ return score;
 }
 int fourthChoice() // function for adding user ability
 {
-
+    int score=0;
     int choice;
     cout << "The previously-blockaded doorway opens into a room filled with multi colored bottles lying around. Upon further inspection, you realize they are potions. Which potion do you pick: (1) the yellow potion in a small square bottle (2) the blue potion in a spherical bottle or (3) the red potion in a tiny vial?" << endl;
     cin >> choice;
