@@ -19,13 +19,11 @@ int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice();
 
 int main()
 {
-    int totalScore;
     int score=0;
     startGame();
     firstChoice();
     secondChoice();
-    totalScore = firstChoice(score)+ secondChoice(score);
-    cout << "your total score is: " << totalScore <<endl;
+    cout << "your total score is: " << score <<endl;
     return 0;
 }
 
@@ -36,7 +34,7 @@ void startGame()
 }
 
 
-int firstChoice(int score)
+int firstChoice()
 {
     
         int choice;
@@ -68,7 +66,7 @@ int firstChoice(int score)
 
 
 // function if the user chooses to explore the forest
-int forestChoice(int score)
+int forestChoice()
 {
     
     int choice;
@@ -93,7 +91,7 @@ int forestChoice(int score)
 //{
     
 //}
-int secondChoice(int score)
+int secondChoice()
 {
     
     int choice;
@@ -121,7 +119,7 @@ int secondChoice(int score)
 return score;
 }
     
-int thirdChoice(int score)
+int thirdChoice()
 {
     
     int choice;
@@ -145,7 +143,7 @@ int thirdChoice(int score)
 return score;
     
 }
-int fourthChoice(int score) // function for adding user ability
+int fourthChoice() // function for adding user ability
 {
 
     int choice;
