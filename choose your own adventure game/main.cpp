@@ -19,8 +19,8 @@ bool abilityOne=0, abilityTwo=0, abilityThree=0;
 string ability1, ability2, ability3;
 
 // declaring functions
-void startGame(), doorwayChoice(), confront1(), confront2();
-int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(),fourthChoice(),fifthChoice(),sixthChoice(), seventhChoice(), eightChoice(), ninthChoice(), tenthChoice(),rand(),obstacle1(),obstacle2(),lowScore1(),highScore1(),obstacle3(), obstacle4(), obstacle5(), obstacle6();
+void startGame(), doorwayChoice(), confront1(), confront2(), endGame();
+int forestChoice(),stayChoice(),firstChoice(),secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(),sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(), tenthChoice(), rand(), obstacle1(), obstacle2(), lowScore1(), highScore1(), obstacle3(),obstacle4(), obstacle5(), obstacle6();
 
 int main()
 {
@@ -48,6 +48,9 @@ int main()
     totalScore+=sixthChoice();
     totalScore+=seventhChoice();
     totalScore+=eightChoice();
+    totalScore+=ninthChoice();
+    totalScore+=tenthChoice();
+    endGame();
     cout << "Your final score is: " << totalScore <<endl;
     return 0;
 }
@@ -110,7 +113,7 @@ int forestChoice()
     else if (choice==2)
     {
         cout << "you try to hide in the forest but are unable to outrun the monster and it catches you anyways. you die." << endl;
-         return 0;
+         exit (0);
         
     }
     return score;
@@ -253,7 +256,7 @@ int fourthChoice() // the user gets to fight the first enemy
            break;
         default:
             cout << "You stand, frozen in fear and get struck down by the hydra! you die." << endl;
-            return 0;
+            exit(0);
             break;
     }
 return score;
@@ -504,7 +507,7 @@ int seventhChoice() // the user gets to fight another monster
            break;
         default:
             cout << "You stand, frozen in fear and get bitten and struck down by the Snake! you die." << endl;
-            return 0;
+            exit(0);
             break;
     }
 return score;
@@ -625,11 +628,58 @@ int obstacle6()
     return score;
 
 }
-//int ninthChoice()
-//{
-    
-//}
-//int tenthChoice()
-//{
 
-//}
+int ninthChoice() // user gets to interact with a wizard
+{
+    int choice;
+    int score=0;
+    cout << "After walking through the castle for hours, you know you are near the end. Suddenly, you see a strange old man with a wizard cap. do you (1) approach him or (2) keep walking?" << endl;
+    cin >> choice;
+    if (choice==2)
+    {
+        cout << "you ignore the strange wizard, and keep walking. you are so close to the end now" << endl;
+        score+=3;
+    }
+    else if (choice==1)
+    {
+        cout << "You approach the old Wizard. He tells you his name is Rokas, and warns you of a great monster guarding the exit of the castle. He wishes you luck." << endl;
+         score +=5;
+        
+    }
+    else {
+        cout<< "You need to make a decision!" << endl;
+        ninthChoice();
+    }
+    return score;
+}
+
+int tenthChoice() // final battle with monster
+{
+    int choice;
+    int score=0;
+    cout << "You suddenly see the castle exit, and run towards it! Before you can reach, a GIGANTIC spider blocks your path!" << endl;
+    cout << "do you (1) run away from it or (2) confront it?" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "You try to run away from the spider but it catches you with its web quickly! you die, so close to the end." << endl;
+        exit(0);
+    }
+    else if (choice==2)
+    {
+        cout << "You decide to attack the huge spider. before you can even reach, the spider gets scared by you running towards it and scuttles away! you are free!" << endl;
+        score+=5;
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        tenthChoice();
+    }
+    return score;
+ 
+}
+void endGame() // the user gets a final message if they beat the game
+{
+    cout << "You have successfully gotten out of the castle and found your friends! well done on beating the game!" << endl;
+}
+
