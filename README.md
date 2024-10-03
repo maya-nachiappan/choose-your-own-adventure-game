@@ -15,4 +15,4 @@
 
 *Demo*
 <img width="1423" alt="Screenshot 2024-10-02 at 11 55 57 PM" src="https://github.com/user-attachments/assets/c4358a9f-da87-4618-81a3-dc55088167a5">
-[Watch the demo](https://drive.google.com/file/d/1oJ4b7X8vRm5rPL3afphatCDYdzfBIXOa/view?usp=sharing)
+[Watch the explanation here](https://drive.google.com/file/d/1oJ4b7X8vRm5rPL3afphatCDYdzfBIXOa/view?usp=sharing)
