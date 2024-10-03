@@ -20,7 +20,7 @@ string ability1, ability2, ability3;
 
 // declaring functions
 void startGame(), doorwayChoice(), confront1(), confront2(), endGame();
-int forestChoice(),stayChoice(),firstChoice(),secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(),sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(), tenthChoice(), rand(), obstacle1(), obstacle2(), lowScore1(), highScore1(), obstacle3(),obstacle4(), obstacle5(), obstacle6();
+int forestChoice(),stayChoice(),firstChoice(),secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(),sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(), tenthChoice(), rand(), obstacle1(), obstacle2(), lowScore(), highScore(), obstacle3(),obstacle4(), obstacle5(), obstacle6();
 
 int main()
 {
@@ -40,11 +40,11 @@ int main()
     totalScore+=fifthChoice();
     if (totalScore>12) // the user gets a score check
     {
-        totalScore+=highScore1();
+        totalScore+=highScore();
     }
     else
     {
-        totalScore+=lowScore1();
+        totalScore+=lowScore();
     }
     totalScore+=sixthChoice();
     totalScore+=seventhChoice();
@@ -389,7 +389,7 @@ int obstacle2() // the user sees a crumbling hallway
 
 }
 
-int highScore1() // the user gets another special ability if their current score is high
+int highScore() // the user gets another special ability if their current score is high
 {
     int choice;
     int score=0;
@@ -411,14 +411,14 @@ int highScore1() // the user gets another special ability if their current score
             break;
         default:
             cout << "you need to make a decision!" << endl;
-            highScore1();
+            highScore();
             break;
     }
     cout << endl;
     return score;
 }
     
-int lowScore1() // the user gets a challenge to increase their score if it is low
+int lowScore() // the user gets a challenge to increase their score if it is low
     {
         int choice;
         int score=0;
@@ -442,7 +442,7 @@ int lowScore1() // the user gets a challenge to increase their score if it is lo
                 break;
             default:
                 cout << "you need to make a decision!" << endl;
-                lowScore1();
+                lowScore();
                 break;
                 
         }
