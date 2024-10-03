@@ -9,21 +9,22 @@
 #include <cstdlib>
 #include <ctime>
 #include <limits>
+#include <string>
 
 using namespace std;
 
 int score=0;
+string weapon;
 bool abilityOne=0, abilityTwo=0, abilityThree=0;
-char ability1, ability2, ability3;
-
-char weapon;
+string ability1, ability2, ability3;
 
 // declaring functions
 void startGame(), doorwayChoice(), confront1();
-int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice(), rand(), obstacle1(), obstacle2();
+int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice(), rand(), obstacle1(), obstacle2(), lowScore1(), highScore1();
 
 int main()
 {
+    
     int totalScore=0;
     startGame();
     totalScore+=firstChoice();
@@ -36,7 +37,15 @@ int main()
     }
     totalScore+=fourthChoice();
     totalScore+=fifthChoice();
-    cout << "your total score is: " << totalScore <<endl;
+    if (totalScore>12) // the user gets a score check
+    {
+        totalScore+=highScore1();
+    }
+    else
+    {
+        totalScore+=lowScore1();
+    }
+    cout << "Your final score is: " << totalScore <<endl;
     return 0;
 }
 
@@ -143,17 +152,17 @@ int secondChoice()
     switch (choice){
         case 1:
             cout << "You pick up the bow and there are 5 arrows " << endl;
-            weapon ='b';
+            weapon ="bow and arrow";
             return score+= 3;
             break;
         case 2:
             cout << "You pick up the sword and it is perfectly balanced and weighted in your hand" << endl;
-            weapon = 's';
+            weapon = "sword";
             return score += 5;
            break;
         case 3:
             cout << "You pick up the gun, but there are only three bullets" << endl;
-            weapon = 'g';
+            weapon = "gun";
             return score += 1;
             break;
         default:
@@ -177,11 +186,11 @@ int thirdChoice()
         case 1:
             cout << "You manage to pull apart the wooden planks" << endl;
             doorwayChoice();
-            return score+= 5;
+            score+= 5;
             break;
         case 2:
             cout << "You leave the blockaded doorway alone, rather than trying to mess with whatever is beyond it." << endl;
-            return score += 2;
+            score += 2;
            break;
         default:
             cout << "you need to make a decision!" << endl;
@@ -202,16 +211,16 @@ void doorwayChoice() // function for adding special ability 1 if user goes into 
     switch (choice){
         case 1:
             cout << "You drink the fire potion and get the ability to throw fireballs" << endl;
-            ability1='f';
+            ability1="fire bending ability";
           
             break;
         case 2:
             cout << "You drink the water potion and get the ability to move water" << endl;
-            ability1='w';
+            ability1="water bending ability";
            break;
         case 3:
             cout << "you drink the red potion and get the ability to blast air" << endl;
-            ability1='a';
+            ability1="air blasting ability";
             break;
         default:
             cout << "you need to make a decision!" << endl;
@@ -350,6 +359,63 @@ int obstacle2() // the user sees a crumbling hallway
     return score;
 
 }
+
+int highScore1() // the user gets another special ability if their current score is high
+{
+    int choice;
+    int score=0;
+    abilityTwo=1;
+    cout << "you have a high score! you can now choose to get another special ability from a potion!" << endl;
+    cout << "do you want the (1) ice potion or (2) stone shifting potion?" << endl;
+    cin >> choice;
+    switch (choice){
+        case 1:
+            cout << "You drink the ice potion and get the ability to throw icicles!" << endl;
+            ability2="icicle ability";
+            score+=1;
+            break;
+        case 2:
+            cout << "You drink the stone potion and get the ability to shift rock!" << endl;
+            ability2="rock shifting ability";
+            score+=1;
+            break;
+        default:
+            cout << "you need to make a decision!" << endl;
+            highScore1();
+            break;
+    }
+    return score;
+}
+    
+int lowScore1() // the user gets a challenge to increase their score if it is low
+    {
+        int choice;
+        int score=0;
+        abilityTwo=1;
+        cout << "you have a low score! you can now choose to go through 1 of 3 mystery doorways in order to get a score increase and it might possibly be a shortcut too!" << endl;
+        cout << "do you want to go through the (1) the blue door, (2) the green door or (3) the yellow door?" << endl;
+        cin >> choice;
+        switch (choice){
+            case 1:
+                cout << "You go through the blue door. It is not a shortcut but it has a small window and you notice it is night time now. you should keep moving." << endl;
+                 score+=1;
+                break;
+            case 2:
+                cout << "You go through the green door. congrats, its a shortcut!" << endl;
+                score+=5;
+                break;
+            case 3:
+                cout <<"You go through the yellow door. It isn't a shortcut, but you see a map on the wall. you know how to get to the end of the castle now!" << endl;
+                score+=3;
+                break;
+            default:
+                cout << "you need to make a decision!" << endl;
+                lowScore1();
+                break;
+                
+        }
+        return score;
+    }
 //int sixthChoice()
 //{
     
