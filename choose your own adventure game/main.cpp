@@ -558,7 +558,7 @@ void confront2() // nested if loops to check what weapon or ability the user wan
     }
 }
 
-int eigthChoice() // user gets another random obstacle using generator
+int eightChoice() // user gets another random obstacle using generator
 {
     int score=0;
     int value=randomGen();
