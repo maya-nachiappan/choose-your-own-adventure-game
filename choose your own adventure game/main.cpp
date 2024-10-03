@@ -20,7 +20,7 @@ char weapon;
 
 // declaring functions
 void startGame(), doorwayChoice(), confront1();
-int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice();
+int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice(), rand(), obstacle1(), obstacle2();
 
 int main()
 {
@@ -35,6 +35,7 @@ int main()
         cout <<"you now have a special ability! this can be used later on." << endl;
     }
     totalScore+=fourthChoice();
+    totalScore+=fifthChoice();
     cout << "your total score is: " << totalScore <<endl;
     return 0;
 }
@@ -270,10 +271,85 @@ void confront1() // the user fights the first monster, a hydra
         cout <<"You successfully slay the hydra with your " <<weapon<< "! well done!" <<endl;
     }
 }
-//int fifthChoice()
-//{
-    
-//}
+
+int randomGen() // generates a random value between 1 to 10
+{
+    const int minValue = 1; // minimum dice value
+        const int maxValue =10; // maximum dice value
+        int randomVal; // random dice variable values
+        
+        unsigned seed = time(0); // gets system time
+        srand(seed); // gets new seed for random number generator every time the sytem time changes
+        
+        randomVal = (rand()% (maxValue-minValue + 1)) + minValue;
+        return randomVal;
+}
+
+int fifthChoice() // the user gets a different obstacle based on a randomly generated number between 1 and 10
+{
+    int score=0;
+    int value=randomGen();
+    if (value%2==0)
+    {
+       score+=obstacle1();
+    }
+    else
+    {
+        score+=obstacle2();
+    }
+    return score;
+}
+
+int obstacle1() // the user sees a spooky hallway
+{
+    int choice;
+    int score=0;
+    cout << "After continuing through the castle corridors, you come across a spooky hallway that seems to be bigger than the others." << endl;
+    cout << " do you (1) ignore the hallway and walk around it or (2) try to explore the hallway?" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "you ignore the spooky hallway. better safe than sorry" << endl;
+        score+=1;
+    }
+    else if (choice==2)
+    {
+        cout << "you go into the hallway and realize its a shorcut towards the end of the castle! you feel more confident in escaping now!" << endl;
+        score+=3;
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        obstacle1();
+    }
+    return score;
+}
+
+int obstacle2() // the user sees a crumbling hallway
+{
+    int choice;
+    int score=0;
+    cout << "After continuing through the castle corridors, you come across a crumbling hallway that seems like it might be a shortcut to the end of the castle." << endl;
+    cout << " do you (1) ignore the hallway and walk around it or (2) try to explore the hallway?" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "you ignore the crumbling hallway. better safe than sorry" << endl;
+        score+=3;
+    }
+    else if (choice==2)
+    {
+        cout << "you go into the hallway and quickly realize its not a shorcut and is on the verge of collapsing! you quickly run out." << endl;
+        score+=1;
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        obstacle2();
+    }
+    return score;
+
+}
 //int sixthChoice()
 //{
     
