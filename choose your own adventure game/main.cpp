@@ -13,8 +13,10 @@
 using namespace std;
 
 int score=0;
-bool ability=0;
-char specialAbility;
+bool abilityOne=0, abilityTwo=0, abilityThree=0;
+char ability1, ability2, ability3;
+
+char weapon;
 
 // declaring functions
 void startGame(), doorwayChoice();
@@ -26,7 +28,12 @@ int main()
     startGame();
     totalScore+=firstChoice();
     totalScore+= secondChoice();
+    cout << "you now have a "<< weapon <<" in your inventory!"<< endl;
     totalScore+= thirdChoice();
+    if (abilityOne)
+    {
+        cout <<"you now have a special ability! this can be used later on." << endl;
+    }
     
     cout << "your total score is: " << totalScore <<endl;
     return 0;
@@ -134,19 +141,23 @@ int secondChoice()
     
     switch (choice){
         case 1:
-            cout << "You pick up the bow and there are only 4 arrows " << endl;
+            cout << "You pick up the bow and there are 5 arrows " << endl;
+            weapon ='b';
             return score+= 3;
             break;
         case 2:
             cout << "You pick up the sword and it is perfectly balanced and weighted in your hand" << endl;
+            weapon = 's';
             return score += 5;
            break;
         case 3:
-            cout << "You pick up the gun, but there are only two bullets" << endl;
+            cout << "You pick up the gun, but there are only three bullets" << endl;
+            weapon = 'g';
             return score += 1;
             break;
         default:
             cout << "you decide not to pick up any of the weapons and keep walking through the castle" << endl;
+            weapon = 'o';
             return score -= 1;
             break;
     }
@@ -179,24 +190,27 @@ int thirdChoice()
 return score;
     
 }
-void doorwayChoice() // function for adding user ability
+void doorwayChoice() // function for adding special ability 1 if user goes into the doorway
 {
     
     int choice;
+    abilityOne=1;
     cout << "The previously-blockaded doorway opens into a room filled with multi colored bottles lying around. Upon further inspection, you realize they are potions. Which potion do you pick: (1) the yellow potion in a small square bottle (2) the blue potion in a spherical bottle or (3) the red potion in a tiny vial?" << endl;
     cin >> choice;
     
     switch (choice){
         case 1:
             cout << "You drink the fire potion and get the ability to throw fireballs" << endl;
+            ability1='f';
           
             break;
         case 2:
             cout << "You drink the water potion and get the ability to move water" << endl;
-            
+            ability1='w';
            break;
         case 3:
             cout << "you drink the red potion and get the ability to blast air" << endl;
+            ability1='a';
         default:
             cout << "you need to make a decision!" << endl;
             thirdChoice();
