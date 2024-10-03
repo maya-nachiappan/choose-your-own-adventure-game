@@ -30,6 +30,7 @@ int main()
     totalScore+=firstChoice();
     totalScore+= secondChoice();
     cout << "you now have a "<< weapon <<" in your inventory!"<< endl;
+    cout << endl;
     totalScore+= thirdChoice();
     if (abilityOne)
     {
@@ -58,7 +59,9 @@ int main()
 void startGame()
 {
     cout << "Welcome to your adventure game!"<<endl;
+    cout <<endl;
     cout << "You find yourself alone in the woods, infront of an abandoned castle" << endl;
+    
     
 }
 
@@ -70,7 +73,7 @@ int firstChoice()
     int score=0;
         cout << "Do you want to (1) start searching the forest, (2) go towards the castle or (3) stay put and wait for other people to find you?" << endl;
         cin >> choice;
-        
+    cout << endl;
         switch (choice){
             case 1:
                 cout << "You begin to walk further into the forest" << endl;
@@ -92,6 +95,7 @@ int firstChoice()
                 firstChoice(); // the user must input a valid number or will be repeatedly prompted
                 break;
         }
+    cout << endl;
     return score;
 }
     
@@ -104,7 +108,9 @@ int forestChoice()
     int choice;
     int score=0;
     cout << "You walk through the woods for a while, before eventually hearing the roar of a monster you have never heard before. do you (1) run back to the castle for shelter or (2) try to hide in the woods?" << endl;
+    
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you manage to outrun the monster and reach the castle" << endl;
@@ -116,6 +122,7 @@ int forestChoice()
          exit (0);
         
     }
+    cout << endl;
     return score;
 }
 
@@ -125,7 +132,9 @@ int stayChoice()
     int choice;
     int score=0;
     cout << "You sit on the ground for what seems to be hours before realizing nobody is coming to find you. do you (1) try to go back to the castle (2) try to explore the woods?" << endl;
+    
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you manage to find and get back to the castle safely" << endl;
@@ -142,6 +151,7 @@ int stayChoice()
         cout << "You need to pick an option." << endl;
         stayChoice();
     }
+    cout << endl;
     return score;
     
 }
@@ -153,30 +163,32 @@ int secondChoice()
     int choice;
     int score=0;
     cout << "You walk through the castle and notice various weapons lying around. do you pick up the (1) bow and arrow, (2) the sword or (3) the gun?" << endl;
+    
     cin >> choice;
+    cout << endl;
     
     switch (choice){
         case 1:
             cout << "You pick up the bow and there are 5 arrows " << endl;
             weapon ="bow and arrow";
-            return score+= 3;
+            score+= 3;
             break;
         case 2:
             cout << "You pick up the sword and it is perfectly balanced and weighted in your hand" << endl;
             weapon = "sword";
-            return score += 5;
+            score += 5;
            break;
         case 3:
             cout << "You pick up the gun, but there are only three bullets" << endl;
             weapon = "gun";
-            return score += 1;
+            score += 1;
             break;
         default:
-            cout << "you decide not to pick up any of the weapons and keep walking through the castle" << endl;
-            weapon = 'o';
-            return score -= 1;
+            cout << "you need to pick a weapon!" << endl;
+            secondChoice();
             break;
     }
+    cout << endl;
 return score;
 }
     
@@ -186,11 +198,13 @@ int thirdChoice()
     int score=0;
     int choice;
     cout << "You come across a corridor with a doorway that is blocked off with large planks of wood. do you (1) try to find a way inside or (2) leave the doorway and continue exploring the rest of the castle?" << endl;
+   
     cin >> choice;
-    
+    cout << endl;
     switch (choice){
         case 1:
-            cout << "You manage to pull apart the wooden planks" << endl;
+            cout << "You manage to pull apart the wooden planks and enter the doorway" << endl;
+            cout << endl;
             doorwayChoice();
             score+= 5;
             break;
@@ -203,6 +217,7 @@ int thirdChoice()
             thirdChoice();
             break;
     }
+    cout << endl;
 return score;
     
 }
@@ -213,6 +228,7 @@ void doorwayChoice() // function for adding special ability 1 if user goes into 
     abilityOne=1;
     cout << "The previously-blockaded doorway opens into a room filled with multi colored bottles lying around. Upon further inspection, you realize they are potions. Which potion do you pick: (1) the yellow potion in a small square bottle (2) the blue potion in a spherical bottle or (3) the red potion in a tiny vial?" << endl;
     cin >> choice;
+    cout << endl;
     
     switch (choice){
         case 1:
@@ -233,7 +249,7 @@ void doorwayChoice() // function for adding special ability 1 if user goes into 
             thirdChoice();
             break;
     }
-    
+    cout << endl;
 }
 
 int fourthChoice() // the user gets to fight the first enemy
@@ -243,7 +259,7 @@ int fourthChoice() // the user gets to fight the first enemy
     cout << "After walking around for a while, you suddenly hear the sound of a large monster running towards you!" << endl;
     cout<< "do you (1) run away in the opposite direction or (2) confront it?" << endl;
     cin >> choice;
-    
+    cout << endl;
     switch (choice){
         case 1:
             cout << "You immediately turn around and manage to run away from the unknown monster" << endl;
@@ -259,6 +275,7 @@ int fourthChoice() // the user gets to fight the first enemy
             exit(0);
             break;
     }
+    cout << endl;
 return score;
 }
 
@@ -268,6 +285,7 @@ void confront1() // the user fights the first monster, a hydra
     if (abilityOne){
         cout << "The monster turns out to be a hydra with three heads! you can defeat it using your (1) "<< weapon<<" or (2) your special ability!" << endl;
         cin >> choice;
+        cout << endl;
         if (choice==1)
         {
             cout << "You successfully slay the hydra with your " <<weapon<< "! well done!" <<endl;
@@ -284,7 +302,8 @@ void confront1() // the user fights the first monster, a hydra
     else
     {
         cout <<"You successfully slay the hydra with your " <<weapon<< "! well done!" <<endl;
-    }
+        }
+    cout << endl;
 }
 
 int randomGen() // generates a random value between 1 to 10
@@ -322,6 +341,7 @@ int obstacle1() // the user sees a spooky hallway
     cout << "After continuing through the castle corridors, you come across a spooky hallway that seems to be bigger than the others." << endl;
     cout << " do you (1) ignore the hallway and walk around it or (2) try to explore the hallway?" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you ignore the spooky hallway. better safe than sorry" << endl;
@@ -337,6 +357,7 @@ int obstacle1() // the user sees a spooky hallway
         cout << "You need to pick an option." << endl;
         obstacle1();
     }
+    cout << endl;
     return score;
 }
 
@@ -347,6 +368,7 @@ int obstacle2() // the user sees a crumbling hallway
     cout << "After continuing through the castle corridors, you come across a crumbling hallway that seems like it might be a shortcut to the end of the castle." << endl;
     cout << " do you (1) ignore the hallway and walk around it or (2) try to explore the hallway?" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you ignore the crumbling hallway. better safe than sorry" << endl;
@@ -362,6 +384,7 @@ int obstacle2() // the user sees a crumbling hallway
         cout << "You need to pick an option." << endl;
         obstacle2();
     }
+    cout <<endl;
     return score;
 
 }
@@ -374,6 +397,7 @@ int highScore1() // the user gets another special ability if their current score
     cout << "you have a high score! you can now choose to get another special ability from a potion!" << endl;
     cout << "do you want the (1) ice potion or (2) stone shifting potion?" << endl;
     cin >> choice;
+    cout << endl;
     switch (choice){
         case 1:
             cout << "You drink the ice potion and get the ability to throw icicles!" << endl;
@@ -390,6 +414,7 @@ int highScore1() // the user gets another special ability if their current score
             highScore1();
             break;
     }
+    cout << endl;
     return score;
 }
     
@@ -401,6 +426,7 @@ int lowScore1() // the user gets a challenge to increase their score if it is lo
         cout << "you have a low score! you can now choose to go through 1 of 3 mystery doorways in order to get a score increase and it might possibly be a shortcut too!" << endl;
         cout << "do you want to go through the (1) the blue door, (2) the green door or (3) the yellow door?" << endl;
         cin >> choice;
+        cout << endl;
         switch (choice){
             case 1:
                 cout << "You go through the blue door. It is not a shortcut but it has a small window and you notice it is night time now. you should keep moving." << endl;
@@ -420,6 +446,7 @@ int lowScore1() // the user gets a challenge to increase their score if it is lo
                 break;
                 
         }
+        cout << endl;
         return score;
 }
 
@@ -445,6 +472,7 @@ int obstacle3()
     cout << "After walking for a while, you start to feel tired and look around for food. You see a wrapped sandwich lying on the ground, mysteriously " << endl;
     cout << " do you (1) ignore the sandwich and keep walking (2) eat the sandwich" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you ignore the sandwich. better safe than sorry" << endl;
@@ -460,6 +488,7 @@ int obstacle3()
         cout << "You need to pick an option." << endl;
         obstacle3();
     }
+    cout << endl;
     return score;
 }
 
@@ -470,6 +499,7 @@ int obstacle4()
     cout << "After walking for a while, you start to feel thirsty and look around for something to drink. You see a bottle lying on the ground, mysteriously " << endl;
     cout << " do you (1) ignore the bottle and keep walking (2) drink whatever is inside the mystery bottle" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you ignore the bottle. better safe than sorry" << endl;
@@ -485,6 +515,7 @@ int obstacle4()
         cout << "You need to pick an option." << endl;
         obstacle4();
     }
+    cout << endl;
     return score;
 }
 
@@ -495,6 +526,7 @@ int seventhChoice() // the user gets to fight another monster
     cout << "As you turn around another corridor, you hear the hiss of a snake! and it sounds like a big one!" << endl;
     cout<< "do you (1) run away in the opposite direction or (2) confront it?" << endl;
     cin >> choice;
+    cout << endl;
     switch (choice){
         case 1:
             cout << "You immediately turn around and manage to run away from the snake!" << endl;
@@ -510,6 +542,7 @@ int seventhChoice() // the user gets to fight another monster
             exit(0);
             break;
     }
+    cout << endl;
 return score;
 }
 
@@ -519,6 +552,7 @@ void confront2() // nested if loops to check what weapon or ability the user wan
     if (abilityOne==1 || abilityTwo==1){ // the loop begins if the user has atleast 1 special ability
         cout << "The snake is venomous and pretty fast! you can defeat it using your (1) special ability or (2) "<<weapon<< " ?"<<endl;
         cin >> choice;
+        cout << endl;
         if (choice==1)
         {
             if (abilityOne==1 && abilityTwo==1)
@@ -559,6 +593,7 @@ void confront2() // nested if loops to check what weapon or ability the user wan
         cout<< "you need to make a decision quickly!" <<endl;
         confront2();
     }
+    cout << endl;
 }
 
 int eightChoice() // user gets another random obstacle using generator
@@ -584,6 +619,7 @@ int obstacle5()
     cout << "You suddenly trip on a bag laid on the ground!" << endl;
     cout << " do you (1) ignore the bag and keep walking (2) open the bag and see whats inside" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you ignore the mystery bag. better safe than sorry" << endl;
@@ -599,6 +635,7 @@ int obstacle5()
         cout << "You need to pick an option." << endl;
         obstacle5();
     }
+    cout << endl;
     return score;
     
 }
@@ -610,6 +647,7 @@ int obstacle6()
     cout << "You suddenly trip on a box laid on the ground!" << endl;
     cout << " do you (1) ignore the box and keep walking (2) open the box and see whats inside" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "you ignore the mystery box. better safe than sorry" << endl;
@@ -625,6 +663,7 @@ int obstacle6()
         cout << "You need to pick an option." << endl;
         obstacle6();
     }
+    cout << endl;
     return score;
 
 }
@@ -635,6 +674,7 @@ int ninthChoice() // user gets to interact with a wizard
     int score=0;
     cout << "After walking through the castle for hours, you know you are near the end. Suddenly, you see a strange old man with a wizard cap. do you (1) approach him or (2) keep walking?" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==2)
     {
         cout << "you ignore the strange wizard, and keep walking. you are so close to the end now" << endl;
@@ -650,6 +690,7 @@ int ninthChoice() // user gets to interact with a wizard
         cout<< "You need to make a decision!" << endl;
         ninthChoice();
     }
+    cout << endl;
     return score;
 }
 
@@ -660,6 +701,7 @@ int tenthChoice() // final battle with monster
     cout << "You suddenly see the castle exit, and run towards it! Before you can reach, a GIGANTIC spider blocks your path!" << endl;
     cout << "do you (1) run away from it or (2) confront it?" << endl;
     cin >> choice;
+    cout << endl;
     if (choice==1)
     {
         cout << "You try to run away from the spider but it catches you with its web quickly! you die, so close to the end." << endl;
@@ -675,11 +717,13 @@ int tenthChoice() // final battle with monster
         cout << "You need to pick an option." << endl;
         tenthChoice();
     }
+    cout << endl;
     return score;
  
 }
 void endGame() // the user gets a final message if they beat the game
 {
     cout << "You have successfully gotten out of the castle and found your friends! well done on beating the game!" << endl;
+    cout << endl;
 }
 
