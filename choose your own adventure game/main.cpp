@@ -20,7 +20,7 @@ string ability1, ability2, ability3;
 
 // declaring functions
 void startGame(), doorwayChoice(), confront1(), confront2();
-int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(),fourthChoice(),fifthChoice(),sixthChoice(), seventhChoice(), eightChoice(), ninthChoice(), tenthChoice(),rand(),obstacle1(),obstacle2(),lowScore1(),highScore1(),obstacle3(), obstacle4();
+int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(),fourthChoice(),fifthChoice(),sixthChoice(), seventhChoice(), eightChoice(), ninthChoice(), tenthChoice(),rand(),obstacle1(),obstacle2(),lowScore1(),highScore1(),obstacle3(), obstacle4(), obstacle5(), obstacle6();
 
 int main()
 {
@@ -47,6 +47,7 @@ int main()
     }
     totalScore+=sixthChoice();
     totalScore+=seventhChoice();
+    totalScore+=eightChoice();
     cout << "Your final score is: " << totalScore <<endl;
     return 0;
 }
@@ -557,10 +558,73 @@ void confront2() // nested if loops to check what weapon or ability the user wan
     }
 }
 
-//int eigthChoice()
-//{
+int eigthChoice() // user gets another random obstacle using generator
+{
+    int score=0;
+    int value=randomGen();
+    if (value%2==0)
+    {
+       score+=obstacle5();
+    }
+    else
+    {
+        score+=obstacle6();
+    }
+    return score;
     
-//}
+}
+
+int obstacle5()
+{
+    int choice;
+    int score=0;
+    cout << "You suddenly trip on a bag laid on the ground!" << endl;
+    cout << " do you (1) ignore the bag and keep walking (2) open the bag and see whats inside" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "you ignore the mystery bag. better safe than sorry" << endl;
+        score+=3;
+    }
+    else if (choice==2)
+    {
+        cout << "you open the bag and find spider eggs! you drop the bag and walk away quickly" <<endl;
+        score+=1;
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        obstacle5();
+    }
+    return score;
+    
+}
+
+int obstacle6()
+{
+    int choice;
+    int score=0;
+    cout << "You suddenly trip on a box laid on the ground!" << endl;
+    cout << " do you (1) ignore the box and keep walking (2) open the box and see whats inside" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "you ignore the mystery box. better safe than sorry" << endl;
+        score+=1;
+    }
+    else if (choice==2)
+    {
+        cout << "you open the box and find a message from your friends! They are waiting for you outside the castle, if you can get to the exit." <<endl;
+        score+=3;
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        obstacle6();
+    }
+    return score;
+
+}
 //int ninthChoice()
 //{
     
