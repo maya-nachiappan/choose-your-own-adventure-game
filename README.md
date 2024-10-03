@@ -14,4 +14,5 @@
 - A random number generator determines the sequence of obstacles that a user can encounter, ensuring a unique experience for every player!
 
 *Demo*
-<img width="1423" alt="Screenshot 2024-10-02 at 11 55 57 PM" src="https://github.com/user-attachments/assets/28efcb46-65c4-482b-8ed3-2683c875035a">
+https://github.com/user-attachments/assets/eeaed447-2830-4ca1-a582-13cd63b6c4bc
+
