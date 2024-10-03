@@ -19,8 +19,8 @@ bool abilityOne=0, abilityTwo=0, abilityThree=0;
 string ability1, ability2, ability3;
 
 // declaring functions
-void startGame(), doorwayChoice(), confront1();
-int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice(), rand(), obstacle1(), obstacle2(), lowScore1(), highScore1(), obstacle3(), obstacle4();
+void startGame(), doorwayChoice(), confront1(), confront2();
+int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(),fourthChoice(),fifthChoice(),sixthChoice(), seventhChoice(), eightChoice(), ninthChoice(), tenthChoice(),rand(),obstacle1(),obstacle2(),lowScore1(),highScore1(),obstacle3(), obstacle4();
 
 int main()
 {
@@ -46,6 +46,7 @@ int main()
         totalScore+=lowScore1();
     }
     totalScore+=sixthChoice();
+    totalScore+=seventhChoice();
     cout << "Your final score is: " << totalScore <<endl;
     return 0;
 }
@@ -482,10 +483,79 @@ int obstacle4()
     }
     return score;
 }
-//int seventhChoice()
-//{
+
+int seventhChoice() // the user gets to fight another monster
+{
+    int choice;
+    int score=0;
+    cout << "As you turn around another corridor, you hear the hiss of a snake! and it sounds like a big one!" << endl;
+    cout<< "do you (1) run away in the opposite direction or (2) confront it?" << endl;
+    cin >> choice;
+    switch (choice){
+        case 1:
+            cout << "You immediately turn around and manage to run away from the snake!" << endl;
+            return score+= 2;
+            break;
+        case 2:
+            cout << "You stand your ground and decide to face the Snake" << endl;
+            confront2();
+            return score += 5;
+           break;
+        default:
+            cout << "You stand, frozen in fear and get bitten and struck down by the Snake! you die." << endl;
+            return 0;
+            break;
+    }
+return score;
+}
+
+void confront3() // nested if loops to check what weapon or ability the user wants to choose
+{
+    int choice, subChoice;
+    if (abilityOne || abilityTwo){ // the loop begins if the user has atleast 1 special ability
+        cout << "The snake is venomous and pretty fast! you can defeat it using your (1) special ability or (2) "<<weapon<< " ?"<<endl;
+        cin >> choice;
+        if (choice==1)
+        {
+            if (abilityOne && abilityTwo)
+            {
+                cout << "would you like to use your (1)"<< ability1 <<" or (2) "<< ability2 <<"?"<<endl;
+                cin >> subChoice;
+                if (subChoice==1)
+                {
+                    cout<<"You successfully strike down the snake with your " << ability1 <<"! well done!" << endl;
+                }
+                else if (subChoice==2)
+                {
+                    cout <<"You successfully strike down the snake with your " << ability2<<"! well done!" <<endl;
+                }
+            }
+            if (abilityOne==1 && abilityTwo==0)
+            {
+                cout <<"You successfully strike down the snake with your "<<ability1<<"! well done!" <<endl;
+            }
+            else {
+                cout <<"You successfully strike down the snake with your "<<ability2<<"! well done!" <<endl;
+            }
+        }
+        
+        else if (choice==2)
+        {
+            cout << "You successfully slay the hydra with your "<<weapon<< "! well done!" <<endl;
+        }
+    }
+    else if (abilityOne==0 && abilityTwo==0)
+    {
+        cout << "You successfully slay the hydra with your "<<weapon<< "! well done!" <<endl;
+        
+    }
     
-//}
+    else {
+        cout<< "you need to make a decision quickly!" <<endl;
+        confront3();
+    }
+}
+
 //int eigthChoice()
 //{
     
