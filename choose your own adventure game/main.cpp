@@ -20,7 +20,7 @@ string ability1, ability2, ability3;
 
 // declaring functions
 void startGame(), doorwayChoice(), confront1();
-int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice(), rand(), obstacle1(), obstacle2(), lowScore1(), highScore1();
+int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice(), rand(), obstacle1(), obstacle2(), lowScore1(), highScore1(), obstacle3(), obstacle4();
 
 int main()
 {
@@ -45,6 +45,7 @@ int main()
     {
         totalScore+=lowScore1();
     }
+    totalScore+=sixthChoice();
     cout << "Your final score is: " << totalScore <<endl;
     return 0;
 }
@@ -415,11 +416,72 @@ int lowScore1() // the user gets a challenge to increase their score if it is lo
                 
         }
         return score;
+}
+
+int sixthChoice() // the user gets another random obstacle based on a randomly generated number
+{
+    int score=0;
+    int value=randomGen();
+    if (value%2==0)
+    {
+       score+=obstacle3();
     }
-//int sixthChoice()
-//{
-    
-//}
+    else
+    {
+        score+=obstacle4();
+    }
+    return score;
+}
+
+int obstacle3()
+{
+    int choice;
+    int score=0;
+    cout << "After walking for a while, you start to feel tired and look around for food. You see a wrapped sandwich lying on the ground, mysteriously " << endl;
+    cout << " do you (1) ignore the sandwich and keep walking (2) eat the sandwich" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "you ignore the sandwich. better safe than sorry" << endl;
+        score+=3;
+    }
+    else if (choice==2)
+    {
+        cout << "you eat the sandwich and feel less hungry, but it tastes pretty bad." <<endl;
+        score+=1;
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        obstacle3();
+    }
+    return score;
+}
+
+int obstacle4()
+{
+    int choice;
+    int score=0;
+    cout << "After walking for a while, you start to feel thirsty and look around for something to drink. You see a bottle lying on the ground, mysteriously " << endl;
+    cout << " do you (1) ignore the bottle and keep walking (2) drink whatever is inside the mystery bottle" << endl;
+    cin >> choice;
+    if (choice==1)
+    {
+        cout << "you ignore the bottle. better safe than sorry" << endl;
+        score+=1;
+    }
+    else if (choice==2)
+    {
+        cout << "You drink from the bottle and it turns out to be clean, fresh water! you feel better now" <<endl;
+        score+=3;
+        
+    }
+    else {
+        cout << "You need to pick an option." << endl;
+        obstacle4();
+    }
+    return score;
+}
 //int seventhChoice()
 //{
     
