@@ -19,8 +19,8 @@ char ability1, ability2, ability3;
 char weapon;
 
 // declaring functions
-void startGame(), doorwayChoice();
-int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice();
+void startGame(), doorwayChoice(), confront1();
+int forestChoice(), stayChoice(), firstChoice(), secondChoice(), thirdChoice(), fourthChoice(), fifthChoice(), sixthChoice(),seventhChoice(),eightChoice(),ninthChoice(),tenthChoice();
 
 int main()
 {
@@ -34,7 +34,7 @@ int main()
     {
         cout <<"you now have a special ability! this can be used later on." << endl;
     }
-    
+    totalScore+=fourthChoice();
     cout << "your total score is: " << totalScore <<endl;
     return 0;
 }
@@ -211,6 +211,7 @@ void doorwayChoice() // function for adding special ability 1 if user goes into 
         case 3:
             cout << "you drink the red potion and get the ability to blast air" << endl;
             ability1='a';
+            break;
         default:
             cout << "you need to make a decision!" << endl;
             thirdChoice();
@@ -218,27 +219,78 @@ void doorwayChoice() // function for adding special ability 1 if user goes into 
     }
     
 }
-//void fifthChoice()
+
+int fourthChoice() // the user gets to fight the first enemy
+{
+    int choice;
+    int score=0;
+    cout << "After walking around for a while, you suddenly hear the sound of a large monster running towards you!" << endl;
+    cout<< "do you (1) run away in the opposite direction or (2) confront it?" << endl;
+    cin >> choice;
+    
+    switch (choice){
+        case 1:
+            cout << "You immediately turn around and manage to run away from the unknown monster" << endl;
+            return score+= 2;
+            break;
+        case 2:
+            cout << "You stand your ground and decide to face the monster" << endl;
+            confront1();
+            return score += 5;
+           break;
+        default:
+            cout << "You stand, frozen in fear and get struck down by the hydra! you die." << endl;
+            return 0;
+            break;
+    }
+return score;
+}
+
+void confront1() // the user fights the first monster, a hydra
+{
+    int choice;
+    if (abilityOne){
+        cout << "The monster turns out to be a hydra with three heads! you can defeat it using your (1) "<< weapon<<" or (2) your special ability!" << endl;
+        cin >> choice;
+        if (choice==1)
+        {
+            cout << "You successfully slay the hydra with your " <<weapon<< "! well done!" <<endl;
+        }
+        else if (choice==2)
+        {
+            cout << "You successfully slay the hydra with your "<<ability1<< "! well done!" <<endl;
+        }
+        else {
+            cout << "you need to choose what to use!"<< endl;
+            confront1();
+        }
+    }
+    else
+    {
+        cout <<"You successfully slay the hydra with your " <<weapon<< "! well done!" <<endl;
+    }
+}
+//int fifthChoice()
 //{
     
 //}
-//void sixthChoice()
+//int sixthChoice()
 //{
     
 //}
-//void seventhChoice()
+//int seventhChoice()
 //{
     
 //}
-//void eigthChoice()
+//int eigthChoice()
 //{
     
 //}
-//void ninthChoice()
+//int ninthChoice()
 //{
     
 //}
-//void tenthChoice()
+//int tenthChoice()
 //{
 
 //}
