@@ -509,17 +509,18 @@ int seventhChoice() // the user gets to fight another monster
 return score;
 }
 
-void confront3() // nested if loops to check what weapon or ability the user wants to choose
+void confront2() // nested if loops to check what weapon or ability the user wants to choose
 {
     int choice, subChoice;
-    if (abilityOne || abilityTwo){ // the loop begins if the user has atleast 1 special ability
+    if (abilityOne==1 || abilityTwo==1){ // the loop begins if the user has atleast 1 special ability
         cout << "The snake is venomous and pretty fast! you can defeat it using your (1) special ability or (2) "<<weapon<< " ?"<<endl;
         cin >> choice;
         if (choice==1)
         {
-            if (abilityOne && abilityTwo)
+            if (abilityOne==1 && abilityTwo==1)
+                
             {
-                cout << "would you like to use your (1)"<< ability1 <<" or (2) "<< ability2 <<"?"<<endl;
+                cout << "would you like to use your (1) "<< ability1 <<" or (2) "<< ability2 <<"?"<<endl;
                 cin >> subChoice;
                 if (subChoice==1)
                 {
@@ -530,7 +531,7 @@ void confront3() // nested if loops to check what weapon or ability the user wan
                     cout <<"You successfully strike down the snake with your " << ability2<<"! well done!" <<endl;
                 }
             }
-            if (abilityOne==1 && abilityTwo==0)
+            else if (abilityOne==1 && abilityTwo==0)
             {
                 cout <<"You successfully strike down the snake with your "<<ability1<<"! well done!" <<endl;
             }
@@ -552,7 +553,7 @@ void confront3() // nested if loops to check what weapon or ability the user wan
     
     else {
         cout<< "you need to make a decision quickly!" <<endl;
-        confront3();
+        confront2();
     }
 }
 
