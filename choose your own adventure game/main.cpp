@@ -308,9 +308,9 @@ void confront1() // the user fights the first monster, a hydra
 
 int randomGen() // generates a random value between 1 to 10
 {
-    const int minValue = 1; // minimum dice value
-        const int maxValue =10; // maximum dice value
-        int randomVal; // random dice variable values
+    const int minValue = 1; // minimum value
+        const int maxValue =10; // maximum value
+        int randomVal; // random variable values
         
         unsigned seed = time(0); // gets system time
         srand(seed); // gets new seed for random number generator every time the sytem time changes
