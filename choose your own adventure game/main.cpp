@@ -56,11 +56,11 @@ int main()
     return 0;
 }
 
-void startGame()
+void startGame() // the user gets a starting message
 {
     cout << "Welcome to your adventure game!"<<endl;
     cout <<endl;
-    cout << "You find yourself alone in the woods, infront of an abandoned castle" << endl;
+    cout << "You find yourself alone in the woods, infront of a dusty, abandoned castle. You wonder where your friends are." << endl;
     
     
 }
@@ -71,7 +71,7 @@ int firstChoice()
     
         int choice;
     int score=0;
-        cout << "Do you want to (1) start searching the forest, (2) go towards the castle or (3) stay put and wait for other people to find you?" << endl;
+        cout << "Do you want to (1) start searching the forest for your friends, (2) go towards the castle or (3) stay put and wait for your friends to find you?" << endl;
         cin >> choice;
     cout << endl;
         switch (choice){
@@ -101,8 +101,8 @@ int firstChoice()
     
 
 
-// function if the user chooses to explore the forest
-int forestChoice()
+
+int forestChoice() // function if the user chooses to explore the forest
 {
     
     int choice;
@@ -126,8 +126,7 @@ int forestChoice()
     return score;
 }
 
-// function if the user chooses to stay put
-int stayChoice()
+int stayChoice() // function if the user chooses to stay put
 {
     int choice;
     int score=0;
@@ -156,8 +155,7 @@ int stayChoice()
     
 }
 
-// the user chooses a weapon
-int secondChoice()
+int secondChoice() // the user gets to choose a weapon
 {
     
     int choice;
@@ -191,9 +189,8 @@ int secondChoice()
     cout << endl;
 return score;
 }
-    
-// the user chooses to explore a doorway
-int thirdChoice()
+
+int thirdChoice() // the user gets a choice to explore a doorway
 {
     int score=0;
     int choice;
@@ -221,6 +218,7 @@ int thirdChoice()
 return score;
     
 }
+
 void doorwayChoice() // function for adding special ability 1 if user goes into the doorway
 {
     
@@ -418,7 +416,7 @@ int highScore() // the user gets another special ability if their current score 
     return score;
 }
     
-int lowScore() // the user gets a challenge to increase their score if it is low
+int lowScore() // the user gets to increase their score if it is low
     {
         int choice;
         int score=0;
@@ -465,7 +463,7 @@ int sixthChoice() // the user gets another random obstacle based on a randomly g
     return score;
 }
 
-int obstacle3()
+int obstacle3() // the user gets to eat a mystery sandwich
 {
     int choice;
     int score=0;
@@ -492,7 +490,7 @@ int obstacle3()
     return score;
 }
 
-int obstacle4()
+int obstacle4() // the user gets to eat a mystery drink
 {
     int choice;
     int score=0;
@@ -546,7 +544,7 @@ int seventhChoice() // the user gets to fight another monster
 return score;
 }
 
-void confront2() // nested if loops to check what weapon or ability the user wants to choose
+void confront2() // the user confronts the snake, function uses nested if loops to check what weapon or ability the user wants to choose
 {
     int choice, subChoice;
     if (abilityOne==1 || abilityTwo==1){ // the loop begins if the user has atleast 1 special ability
@@ -612,7 +610,7 @@ int eightChoice() // user gets another random obstacle using generator
     
 }
 
-int obstacle5()
+int obstacle5() // the user gets to open a mystery bag
 {
     int choice;
     int score=0;
@@ -640,7 +638,7 @@ int obstacle5()
     
 }
 
-int obstacle6()
+int obstacle6() // the user gets to open a mystery box
 {
     int choice;
     int score=0;
@@ -721,7 +719,7 @@ int tenthChoice() // final battle with monster
     return score;
  
 }
-void endGame() // the user gets a final message if they beat the game
+void endGame() // the user gets a final message if they manage to beat the game
 {
     cout << "You have successfully gotten out of the castle and found your friends! well done on beating the game!" << endl;
     cout << endl;
