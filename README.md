@@ -1,4 +1,4 @@
-**WELCOME TO THE CHOOSE YOUR OWN ADVENTURE GAME**
+**CHOOSE YOUR OWN ADVENTURE GAME**
 
 *Game Objective*
 - The player must make it to the end of this interactive, text based game without dying.
