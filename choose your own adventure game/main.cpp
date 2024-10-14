@@ -13,6 +13,7 @@
 
 using namespace std;
 
+// initializing variables
 int score=0;
 string weapon;
 bool abilityOne=0, abilityTwo=0, abilityThree=0;
@@ -25,24 +26,24 @@ int forestChoice(),stayChoice(),firstChoice(),secondChoice(), thirdChoice(), fou
 int main()
 {
     
-    int totalScore=0;
+    int totalScore=0; // initializing starting score
     startGame();
     totalScore+=firstChoice();
     totalScore+= secondChoice();
-    cout << "you now have a "<< weapon <<" in your inventory!"<< endl;
+    cout << "you now have a "<< weapon <<" in your inventory!"<< endl; // prints name of weapon in user inventory
     cout << endl;
     totalScore+= thirdChoice();
-    if (abilityOne)
+    if (abilityOne) // if boolean variable is true
     {
-        cout <<"you now have a special ability! this can be used later on." << endl;
+        cout <<"you now have a special ability! this can be used later on." << endl; // prints name of ability user has
     }
     totalScore+=fourthChoice();
     totalScore+=fifthChoice();
-    if (totalScore>12) // the user gets a score check
+    if (totalScore>12) // the user gets a score check if their score is high
     {
         totalScore+=highScore();
     }
-    else
+    else // the user gets a different score check if their score is low
     {
         totalScore+=lowScore();
     }
@@ -52,7 +53,7 @@ int main()
     totalScore+=ninthChoice();
     totalScore+=tenthChoice();
     endGame();
-    cout << "Your final score is: " << totalScore <<endl;
+    cout << "Your final score is: " << totalScore <<endl; // the final score of the user is printed if they beat the game
     return 0;
 }
 
@@ -78,7 +79,7 @@ int firstChoice()
             case 1:
                 cout << "You begin to walk further into the forest" << endl;
                 score+= 3;
-                score+=forestChoice();
+                score+=forestChoice(); // the user gets sent to a different function if they choose to go into the forest
                 return score;
                 break;
             case 2:
@@ -88,7 +89,7 @@ int firstChoice()
             case 3:
                 cout << "You sit down on the ground and begin to wait and hope for people to find you" << endl;
                 score += 1;
-                return score+= stayChoice();
+                return score+= stayChoice(); // the user gets sent to a different function if they choose to stay
                 break;
             default:
                 cout << "It is getting dark and cold outside and you need to make a decision soon." << endl;
@@ -119,7 +120,7 @@ int forestChoice() // function if the user chooses to explore the forest
     else if (choice==2)
     {
         cout << "you try to hide in the forest but are unable to outrun the monster and it catches you anyways. you die." << endl;
-         exit (0);
+         exit (0); // the user dies and the program ends
         
     }
     cout << endl;
@@ -143,19 +144,19 @@ int stayChoice() // function if the user chooses to stay put
     {
         cout << "you give up on waiting and try to explore the forest" << endl;
         score+=1;
-        return score += forestChoice();
+        return score += forestChoice(); // the user gets send to the forest function
         
     }
     else {
         cout << "You need to pick an option." << endl;
-        stayChoice();
+        stayChoice(); // the user is repeatedly prompted to choose an option
     }
     cout << endl;
     return score;
     
 }
 
-int secondChoice() // the user gets to choose a weapon
+int secondChoice() // the user gets to choose a weapon and it is stored in a string variable
 {
     
     int choice;
@@ -202,7 +203,7 @@ int thirdChoice() // the user gets a choice to explore a doorway
         case 1:
             cout << "You manage to pull apart the wooden planks and enter the doorway" << endl;
             cout << endl;
-            doorwayChoice();
+            doorwayChoice(); // the user gets sent to the doorway option
             score+= 5;
             break;
         case 2:
@@ -211,7 +212,7 @@ int thirdChoice() // the user gets a choice to explore a doorway
            break;
         default:
             cout << "you need to make a decision!" << endl;
-            thirdChoice();
+            thirdChoice(); // the user is repeatedly prompted to choose
             break;
     }
     cout << endl;
@@ -223,7 +224,7 @@ void doorwayChoice() // function for adding special ability 1 if user goes into 
 {
     
     int choice;
-    abilityOne=1;
+    abilityOne=1; // the boolean variable is set to true and the user gets to choose their first special ability and store it in a string
     cout << "The previously-blockaded doorway opens into a room filled with multi colored bottles lying around. Upon further inspection, you realize they are potions. Which potion do you pick: (1) the yellow potion in a small square bottle (2) the blue potion in a spherical bottle or (3) the red potion in a tiny vial?" << endl;
     cin >> choice;
     cout << endl;
@@ -265,7 +266,7 @@ int fourthChoice() // the user gets to fight the first enemy
             break;
         case 2:
             cout << "You stand your ground and decide to face the monster" << endl;
-            confront1();
+            confront1(); // the user gets sent to confront option
             return score += 5;
            break;
         default:
@@ -280,31 +281,31 @@ return score;
 void confront1() // the user fights the first monster, a hydra
 {
     int choice;
-    if (abilityOne){
+    if (abilityOne){ // if the user has a special ability they are prompted with the option to use it
         cout << "The monster turns out to be a hydra with three heads! you can defeat it using your (1) "<< weapon<<" or (2) your special ability!" << endl;
         cin >> choice;
         cout << endl;
-        if (choice==1)
+        if (choice==1) // the user uses the weapon they previously got
         {
             cout << "You successfully slay the hydra with your " <<weapon<< "! well done!" <<endl;
         }
-        else if (choice==2)
+        else if (choice==2) // the user uses their special ability
         {
             cout << "You successfully slay the hydra with your "<<ability1<< "! well done!" <<endl;
         }
         else {
             cout << "you need to choose what to use!"<< endl;
-            confront1();
+            confront1(); // user continously prompted
         }
     }
-    else
+    else // if the user does not have a special ability
     {
         cout <<"You successfully slay the hydra with your " <<weapon<< "! well done!" <<endl;
         }
     cout << endl;
 }
 
-int randomGen() // generates a random value between 1 to 10
+int randomGen() // a function that returns a random value between 1 to 10
 {
     const int minValue = 1; // minimum value
         const int maxValue =10; // maximum value
@@ -313,19 +314,19 @@ int randomGen() // generates a random value between 1 to 10
         unsigned seed = time(0); // gets system time
         srand(seed); // gets new seed for random number generator every time the sytem time changes
         
-        randomVal = (rand()% (maxValue-minValue + 1)) + minValue;
+        randomVal = (rand()% (maxValue-minValue + 1)) + minValue; // a random value is generated between 1 and 10
         return randomVal;
 }
 
 int fifthChoice() // the user gets a different obstacle based on a randomly generated number between 1 and 10
 {
     int score=0;
-    int value=randomGen();
-    if (value%2==0)
+    int value=randomGen(); // a random value between 1 and 10 is obstained
+    if (value%2==0) // if the random value is even, the user get obstacle 1
     {
        score+=obstacle1();
     }
-    else
+    else // if the random value is odd, the user gets obstacle 2
     {
         score+=obstacle2();
     }
@@ -353,7 +354,7 @@ int obstacle1() // the user sees a spooky hallway
     }
     else {
         cout << "You need to pick an option." << endl;
-        obstacle1();
+        obstacle1(); // the user is repeatedly prompted
     }
     cout << endl;
     return score;
@@ -380,18 +381,18 @@ int obstacle2() // the user sees a crumbling hallway
     }
     else {
         cout << "You need to pick an option." << endl;
-        obstacle2();
+        obstacle2(); // the user is prompted
     }
     cout <<endl;
     return score;
 
 }
 
-int highScore() // the user gets another special ability if their current score is high
+int highScore() // this function is called if the user has a high score
 {
     int choice;
     int score=0;
-    abilityTwo=1;
+    abilityTwo=1; // the user gains another ability and the boolean variable is set to true. the ability is stored in a string variable
     cout << "you have a high score! you can now choose to get another special ability from a potion!" << endl;
     cout << "do you want the (1) ice potion or (2) stone shifting potion?" << endl;
     cin >> choice;
@@ -416,11 +417,11 @@ int highScore() // the user gets another special ability if their current score 
     return score;
 }
     
-int lowScore() // the user gets to increase their score if it is low
+int lowScore() // this function is called if a user has a low score
     {
         int choice;
         int score=0;
-        abilityTwo=1;
+        abilityTwo=0; // the user is not allowed to have a second special ability and the boolean variable is set to false.
         cout << "you have a low score! you can now choose to go through 1 of 3 mystery doorways in order to get a score increase and it might possibly be a shortcut too!" << endl;
         cout << "do you want to go through the (1) the blue door, (2) the green door or (3) the yellow door?" << endl;
         cin >> choice;
@@ -452,11 +453,11 @@ int sixthChoice() // the user gets another random obstacle based on a randomly g
 {
     int score=0;
     int value=randomGen();
-    if (value%2==0)
+    if (value%2==0) // if the random number is even, the user is sent to obstacle 3
     {
        score+=obstacle3();
     }
-    else
+    else // if the random number is odd, the user is sent to obstacle 4
     {
         score+=obstacle4();
     }
@@ -532,7 +533,7 @@ int seventhChoice() // the user gets to fight another monster
             break;
         case 2:
             cout << "You stand your ground and decide to face the Snake" << endl;
-            confront2();
+            confront2(); // the user gets sent to the confront option
             return score += 5;
            break;
         default:
@@ -544,7 +545,7 @@ int seventhChoice() // the user gets to fight another monster
 return score;
 }
 
-void confront2() // the user confronts the snake, function uses nested if loops to check what weapon or ability the user wants to choose
+void confront2() // this function is called if the user chooses to confront and uses nested if loops to check what weapon or ability the user wants to choose
 {
     int choice, subChoice;
     if (abilityOne==1 || abilityTwo==1){ // the loop begins if the user has atleast 1 special ability
@@ -553,21 +554,21 @@ void confront2() // the user confronts the snake, function uses nested if loops 
         cout << endl;
         if (choice==1)
         {
-            if (abilityOne==1 && abilityTwo==1)
+            if (abilityOne==1 && abilityTwo==1) // if the user has both special abilities
                 
             {
                 cout << "would you like to use your (1) "<< ability1 <<" or (2) "<< ability2 <<"?"<<endl;
                 cin >> subChoice;
-                if (subChoice==1)
+                if (subChoice==1) // if the user chooses ability 1
                 {
                     cout<<"You successfully strike down the snake with your " << ability1 <<"! well done!" << endl;
                 }
-                else if (subChoice==2)
+                else if (subChoice==2) // if the user chooses ability 2
                 {
                     cout <<"You successfully strike down the snake with your " << ability2<<"! well done!" <<endl;
                 }
             }
-            else if (abilityOne==1 && abilityTwo==0)
+            else if (abilityOne==1 && abilityTwo==0) // if the user only has the first ability
             {
                 cout <<"You successfully strike down the snake with your "<<ability1<<"! well done!" <<endl;
             }
@@ -576,12 +577,12 @@ void confront2() // the user confronts the snake, function uses nested if loops 
             }
         }
         
-        else if (choice==2)
+        else if (choice==2) // if the user chooses to use a special weapon
         {
             cout << "You successfully slay the hydra with your "<<weapon<< "! well done!" <<endl;
         }
     }
-    else if (abilityOne==0 && abilityTwo==0)
+    else if (abilityOne==0 && abilityTwo==0) // if the user has no special abilities
     {
         cout << "You successfully slay the hydra with your "<<weapon<< "! well done!" <<endl;
         
@@ -589,7 +590,7 @@ void confront2() // the user confronts the snake, function uses nested if loops 
     
     else {
         cout<< "you need to make a decision quickly!" <<endl;
-        confront2();
+        confront2(); // the user is prompted to choose a weapon or ability
     }
     cout << endl;
 }
@@ -598,11 +599,11 @@ int eightChoice() // user gets another random obstacle using generator
 {
     int score=0;
     int value=randomGen();
-    if (value%2==0)
+    if (value%2==0) // if the random number is even, the user gets obstacle 5
     {
        score+=obstacle5();
     }
-    else
+    else // if the number is odd, the user gets obstacle 6
     {
         score+=obstacle6();
     }
@@ -703,7 +704,7 @@ int tenthChoice() // final battle with monster
     if (choice==1)
     {
         cout << "You try to run away from the spider but it catches you with its web quickly! you die, so close to the end." << endl;
-        exit(0);
+        exit(0); // the user dies and the program ends
     }
     else if (choice==2)
     {
