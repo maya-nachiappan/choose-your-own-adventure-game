@@ -9,7 +9,7 @@ Welcome to the Choose Your Own Adventure Game! This game immerses players in a d
 - [Game Functions](#game-functions)
 - [Installation](#installation)
 - [Demo](#demo)
-- [License](#license)
+- [License](https://github.com/maya-nachiappan/choose-your-own-adventure-game/tree/main?tab=MIT-1-ov-file)
 
 ## Game Functions
 
