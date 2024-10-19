@@ -36,7 +36,7 @@ The game consists of several key functions:
 - **`void endGame()`**: Concludes the game, displays the final score of the player
   
 
-The game utilizes boolean string variables to track player decisions, weapons and abilities, and the state of the narrative, enhancing interactivity and replayability.
+The game utilizes boolean and string variables to track player decisions, weapons and abilities, and the state of the narrative, enhancing interactivity and replayability.
 
 
 ## Installation
