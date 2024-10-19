@@ -34,7 +34,7 @@ The game consists of several key functions:
 - **`int highScore()`**: A skill check for the player which allows them to get another special ability if they already have a high score.
   
 - **`void endGame()`**: Concludes the game, displays the final score of the player
-- 
+  
 
 The game utilizes boolean string variables to track player decisions, weapons and abilities, and the state of the narrative, enhancing interactivity and replayability.
 
