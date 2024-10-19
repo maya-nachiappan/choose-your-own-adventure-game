@@ -1,18 +1,52 @@
-**CHOOSE YOUR OWN ADVENTURE GAME**
+# CHOOSE YOUR OWN ADVENTURE GAME
 
-*Game Objective*
-- The player must make it to the end of this interactive, text based game without dying.
+## Overview
 
-*Overview*
-- This C++ program allows the user to choose their own adventure while trying to get to the end of a magical castle. It primarily utilizes switch case statements to control the user input, along with functions for each choice a user can make.
+Welcome to the Choose Your Own Adventure Game! This game immerses players in a dungeons-and-dragons inspired narrative where they make choices that influence the outcome of the story. Navigate through various scenarios, overcome obstacles, and experience multiple endings based on your decisions.
 
-*Features*
-- There are multiple functions in the game which allow the user to increase their overall score as they go through the game.
-- If the user chooses the wrong option, they die and the code is exited.
-- The user gets to store weapons and special abilities in their inventory, as string variables.
-- The program uses boolean variables to determine if a player has a special ability or not, and accordingly changes the output and options that a player can see.
-- A random number generator determines the sequence of obstacles that a user can encounter, ensuring a unique experience for every player!
+## Table of Contents
 
-*Demo*
+- [Game Functions](#game-functions)
+- [Installation](#installation)
+- [Demo](#demo)
+- [License](#license)
+
+## Game Functions
+
+The game consists of several key functions:
+
+- **`void startGame()`**: Initializes the game and sets the stage for the adventure, presents the user with a starting screen message
+
+- **`int firstChoice()`, `secondChoice()`, `thirdChoice()`, `fourthChoice()`, `fifthChoice()`, `sixthChoice()`, `seventhChoice()`, `eighthChoice()`, `ninthChoice()`, `tenthChoice()`**: A series of choices that guide the player through various scenarios.
+ 
+- **`int rand()`**: Generates random numbers to give a randomized path of obstacles the player can experience, so each player has a unique experience.
+  
+- **`int forestChoice()`**: Decides the player's path if they decide to explore the forest.
+- **`int stayChoice()`**: Determines if the player's path if they decide to stay in their current location.
+
+- **`void doorwayChoice()`**: Presents the player with the choice to explore a doorway, where they get the option to get their first special ability.
+- **`void confront1()`**: The first confrontation with a monster, where the user can defeat with a special ability or weapon.
+- **`void confront2()`**: The second confrontation with a monster, escalating the tension.
+
+- **`int obstacle1()`, `obstacle2()`, `obstacle3()`, `obstacle4()`, `obstacle5()`, `obstacle6()`**: Functions representing various obstacles the player must overcome, which are randomly given based on the outcome of the random number generator.
+  
+- **`int lowScore()`**: A skill check for the player which allows them to raise their score if it is low.
+- **`int highScore()`**: A skill check for the player which allows them to get another special ability if they already have a high score.
+  
+- **`void endGame()`**: Concludes the game, displays the final score of the player
+- 
+
+The game utilizes boolean string variables to track player decisions, weapons and abilities, and the state of the narrative, enhancing interactivity and replayability.
+
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/maya-nachiappan/choose-your-own-adventure-game.git
+
+
+## Demo
+
 <img width="1423" alt="Screenshot 2024-10-02 at 11 55 57 PM" src="https://github.com/user-attachments/assets/c4358a9f-da87-4618-81a3-dc55088167a5">
 [Watch the explanation here](https://drive.google.com/file/d/1oJ4b7X8vRm5rPL3afphatCDYdzfBIXOa/view?usp=sharing)
